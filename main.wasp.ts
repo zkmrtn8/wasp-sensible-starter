@@ -37,10 +37,10 @@ function newAuthedAction(action: string, entities: string[] = []) {
 // App Configurations
 // TODO: Change this to your own app info!
 const app = new App('wasp-sensible-starter', {
-    title: "Wasp Sensible Starter",
+    title: "New Wasp App",
     wasp: {version: '^0.16.0'},
     head: [
-        '<meta name="description" content="// MAKE SURE TO CHANGE THIS!! //">', // <- TODO: Change this to your own description!
+        '<meta name="description" content="Your app description!">', // <- TODO: Change this to your own description!
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
         '<meta charset="UTF-8">',
     ]
