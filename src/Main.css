@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+
+  /* Surfaces are neutral colors that are used for the majority of your UI */
+  /* Default values are similar to Tailwind Zinc colors */
+  --color-surface-100: #131313; /* Most important text */
+  --color-surface-200: #3c3c3c; /* Majority of text */
+  --color-surface-300: #b5b5b5; /* Hover background */
+  --color-surface-400: #dcdcdc;
+  --color-surface-500: #e3e3e3;
+  --color-surface-600: #ebebeb;
+  --color-surface-700: #f2f2f2; /* Page background */
+  --color-surface-800: #f7f7f7;
+  --color-surface-900: #fcfcfc;
+
+  /* Primary color. This is probably the one in your logo or branding */
+  --color-primary: oklch(0.75 0.15 237); /* Use for most important elements */
+  --color-primary-foreground: oklch(1 0 89);
+
+  /* These shades are used for the charts. It can be any color, but I recommend
+   * using different shades of the same color rather than different hues for
+   * better accessibility for colorblind users. The ShadCN chart component is not
+   * installed by default, so you'll only need to update these variables if you add it.
+   */
+  --color-chart-100: var(--color-primary);
+  --color-chart-200: oklch(0.6 0.15 237);
+  --color-chart-300: oklch(0.45 0.15 237);
+  --color-chart-400: oklch(0.3 0.15 237);
+  --color-chart-500: oklch(0.2 0.15 237);
+
+  /* An accent color. It can be used for things like rings and buttons */
+  --color-accent: oklch(0.6 0.2 295);
+  --color-accent-foreground: oklch(0.95 0.02 90);
+
+  /* A secondary color */
+  --color-secondary: oklch(0.8 0.072 225.506);
+  --color-secondary-foreground: oklch(0.264 0.046 229.84);
+
+  /* Use for status indications in UI/etc */
+  --color-info: oklch(0.8 0.1 207);
+  --color-info-foreground: oklch(0.7 0.12 200);
+  --color-success: oklch(0.9 0.09 155);
+  --color-success-foreground: oklch(0.6 0.14 161);
+  --color-warning: oklch(0.9 0.06 61);
+  --color-warning-foreground: oklch(0.73 0.165 64);
+  --color-destructive: oklch(0.77 0.12 20);
+  --color-destructive-foreground: oklch(0.45 0.19 29);
+
+  --radius: 0.5rem;
+
+  /* Remove Tailwind's default Surface colors */
+  --color-zinc-*: initial;
+  --color-slate-*: initial;
+  --color-neutral-*: initial;
+  --color-stone-*: initial;
+  --color-gray-*: initial;
+}
+
+.dark {
+  /* Dark versions of your surface colors */
+  /* Default values are similar to Tailwind Zinc colors */
+  --color-surface-100: #e3e3e3; /* Most important text */
+  --color-surface-200: #b5b5b5; /* Majority of text */
+  --color-surface-300: #4f4f4f; /* Hover background */
+  --color-surface-400: #303030;
+  --color-surface-500: #2e2e2e;
+  --color-surface-600: #222222;
+  --color-surface-700: #1e1e1e; /* Page background */
+  --color-surface-800: #121212;
+  --color-surface-900: #0e0e0e;
+}
+
+
+@layer base {
+  /* Text color and borders */
+  * {
+    @apply text-surface-200 font-sans;
+    @apply border-border;
+  }
+
+  /* Links */
+  a {
+    color: var(--color-primary);
+    @apply transition-colors ease-in-out;
+  }
+
+  a:hover {
+    color: var(--color-secondary)
+  }
+
+  /* Page background */
+  html {
+    background-color: var(--color-surface-700);
+  }
+
+  h1, h2 {
+    font-weight: 700;
+  }
+}
