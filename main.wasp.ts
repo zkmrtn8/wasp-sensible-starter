@@ -7,6 +7,22 @@ function newPublicRoute(called: string, at: string, serve: `@src/${string}`) {
     })
 }
 // @ts-ignore (you can delete this comment once the function is used below!)
+function newPublicQuery(query: string, entities: string[] = []) {
+    app.query(query, {
+        fn: {import: query, from: `@src/queries/${query}`},
+        auth: false,
+        entities,
+    })
+}
+// @ts-ignore (you can delete this comment once the function is used below!)
+function newPublicAction(action: string, entities: string[] = []) {
+    app.action(action, {
+        fn: {import: action, from: `@src/actions/${action}`},
+        auth: false,
+        entities,
+    })
+}
+// @ts-ignore (you can delete this comment once the function is used below!)
 function newAuthedRoute(called: string, at: string, serve: `@src/${string}`) {
     app.route(called, {
         path: at,
